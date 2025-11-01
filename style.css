@@ -1,37 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="All copyrights are preserved by !i! JS !i!">
-  <meta name="keywords" content="hcf,hcf by Euclid division lemma,hcf of 2 numbers,hcf by EDL,highest common factor,js,html,css,javascript,lcm">
-  <meta name="author" content="!i! JS !i!">
-  <title>Find HCF and LCM by E.D.L - !i! JS !i!</title>
-  <script src="cordova.js"></script>
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
-  <meta name="msapplication-TileColor" content="#DA532C">
-  <meta name="theme-color" content="#ffffff">
-  <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       transition: all .3s;
       background: #222;
+      user-select: none;
     }
 
     @font-face {
       font-family: js2;
-      src: url('js2.ttf')
+      src: url('fonts/js2.ttf')
     }
 
     @font-face {
       font-family: js;
-      src: url('js.ttf')
+      src: url('fonts/js.ttf')
     }
 
     .num2 {
@@ -163,7 +146,7 @@
       animation: anim1 3s ease .75s;
     }
 
-    @keyframes anim0 {
+    @keyframes anim {
       0% {
         width: 1%;
       }
@@ -173,7 +156,7 @@
       }
     }
 
-    @keyframes anim10 {
+    @keyframes anim1 {
       0% {
         transform: rotateZ(-180deg) scalex(0)skew(0deg);
       }
@@ -198,7 +181,7 @@
       }
     }
 
-    @keyframes anim20 {
+    @keyframes anim2 {
 
       0%,
       1.5% {
@@ -213,7 +196,7 @@
       }
     }
 
-    @keyframes anim30 {
+    @keyframes anim3 {
       0% {
         opacity: 1;
         z-index: 1;
@@ -236,44 +219,3 @@
       font-size:20px;
       border-bottom:4px solid palegreen;
     }
-  </style>
-</head>
-<body>
-  <div class="anim">
-    <h1>
-      <p>WELCOME</p>
-    </h1>
-    <em>-made by !i! JS !i!</em>
-  </div>
-  <div class="num2">
-    <h1>HCF and LCM By Using Euclid Division Lemma Method</h1><em>-made by !i! JS !i!</em><input type="number" id="val1" class="inp" placeholder="1st Number; a = Number" value='612'><input type="number" id="val2" class="inp" placeholder="2nd Number; Number < a" value="20"><button onclick="val()" class="btn">Get</button>
-    <p id="hcf">
-      Get Your HCF and Euclid Division Lemma with LCM HERE!
-    </p>
-  </div>
-  <script>
-    let val = () => {
-      var a, b, c, d, e, x, y, v = document.getElementById('hcf');
-      a = document.getElementById('val1').value; x = a;
-      b = document.getElementById('val2').value; y = b;
-      if (a.length > 21 || b.length > 21) alert('There is a limit of 20 digits!');
-      else {
-        v.innerHTML = `<b>H C F</b><br><br>Here is the Euclid's division lemma:-<br><br>`;
-        if (a % b == 0) v.innerHTML += `${x} = ${y} x ${x/y} + 0<br><br>So the HCF(${x},${y}) is ${y}.<br>---------------------------------------------------<br><b>L C M</b><br><br>LCM(a,b) x HCF(a,b) = a x b<br>Thus, LCM(a,b) = (a x b)/HCF(a,b)<br>LCM = (${x} x ${y})/${y}<br>So the LCM(${x},${y}) = ${x}`;
-        else {
-          while (a % b > 0) {
-            c = b;
-            b = a % b;
-            d = a - b;
-            e = d / c;
-            if (a > b)  v.innerHTML += `${a} = ${c} x ${e} + ${b}<br>`;
-            a = c;
-            c = b;
-          }
-          v.innerHTML += `${a} = ${c} x ${a/c} + 0<br><br>So the HCF(${x},${y}) is ${c}.<br>---------------------------------------------------<br><b>L C M</b><br><br>LCM(a,b) x HCF(a,b) = a x b<br>Thus, LCM(a,b) = (a x b)/HCF(a,b)<br>LCM = (${x} x ${y})/${c}<br>So the LCM(${x},${y}) = ${x*y/c}`;
-        }
-      }
-    }
-  </script>
-</body>
-</html>
